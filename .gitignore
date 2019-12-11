@@ -1,0 +1,4 @@
+Analyzer
+a.out
+*/*.o
+*.o
