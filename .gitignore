@@ -1,4 +1,5 @@
 Analyzer
+tmp/*
 a.out
 */*.o
 *.o

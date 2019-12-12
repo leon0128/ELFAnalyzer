@@ -1,5 +1,7 @@
 #pragma once
 
+#include <fstream>
+
 class Analyzer
 {
 public:
@@ -9,5 +11,5 @@ public:
     bool analyze(char** argv);
 
 private:
-
+    std::ifstream mStream;
 };

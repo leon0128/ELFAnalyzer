@@ -1,10 +1,12 @@
 #include "analyzer.hpp"
-#include "header.hpp"
+#include "file_manager.hpp"
+#include "elf_header.hpp"
 
 #include <fstream>
 #include <iostream>
 
-Analyzer::Analyzer()
+Analyzer::Analyzer():
+    mStream()
 {
 }
 
@@ -14,15 +16,12 @@ Analyzer::~Analyzer()
 
 bool Analyzer::analyze(char** argv)
 {
-    std::ifstream stream(argv[1]);
-    if(!stream.is_open())
+    if(!FileManager::open(mStream, argv[1], std::ios::binary))
         return false;
-    
-    HEADER::ELF elf;
-    stream.read(reinterpret_cast<char*>(&elf), 0x40);
 
-    std::cout << "=== elf header ===" << std::endl;
+    ELFHeader elf;
+    elf.load(mStream);
 
-    stream.close();
+    FileManager::close(mStream);
     return true;
 }
