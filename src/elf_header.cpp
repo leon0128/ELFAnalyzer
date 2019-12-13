@@ -28,11 +28,12 @@ ELFHeader::~ELFHeader()
 {
 }
 
-bool ELFHeader::load(std::ifstream& stream)
+bool ELFHeader::load() const
 {
-    stream.read(reinterpret_cast<char*>(&DATA::ELF()),
-                sizeof(DATA::ELF()));
-    
+    DATA::STREAM().seekg(0x0);
+    DATA::STREAM().read(reinterpret_cast<char*>(&DATA::ELF()),
+                        sizeof(DATA::ELF()));
+
     if(!check())
         return false;
 
@@ -149,16 +150,16 @@ void ELFHeader::print() const
     std::cout << "Flags         : "
               << std::hex << DATA::ELF().e_flags
               << std::endl;
-    std::cout << "ELF Header    : "
+    std::cout << "ELF Header sz : "
               << "0x" << std::hex << DATA::ELF().e_ehsize
               << std::endl;
-    std::cout << "PH entry size : "
+    std::cout << "PH entry sz   : "
               << "0x" << std::hex << DATA::ELF().e_phentsize
               << std::endl;
     std::cout << "Number of PH  : "
               << "0x" << std::hex << DATA::ELF().e_phnum
               << std::endl;
-    std::cout << "SH entry size : "
+    std::cout << "SH entry sz   : "
               << "0x" << std::hex << DATA::ELF().e_shentsize
               << std::endl;
     std::cout << "Number of SH  : "
@@ -170,10 +171,10 @@ void ELFHeader::print() const
     std::cout << "Entry point   : "
               << "0x" << std::setw(0x8) << std::hex << DATA::ELF().e_entry
               << std::endl;
-    std::cout << "PH offset     : "
+    std::cout << "PHT offset    : "
               << "0x" << std::setw(0x8) << std::hex << DATA::ELF().e_phoff
               << std::endl;
-    std::cout << "SH offset     : "
+    std::cout << "SHT offset    : "
               << "0x" << std::setw(0x8) << std::hex << DATA::ELF().e_shoff
               << std::endl;
 }

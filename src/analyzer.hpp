@@ -9,7 +9,4 @@ public:
     ~Analyzer();
 
     bool analyze(char** argv);
-
-private:
-    std::ifstream mStream;
 };

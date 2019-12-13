@@ -33,7 +33,7 @@ struct Program
     std::uint64_t p_offset;
     std::uint64_t p_vaddr;
     std::uint64_t p_paddr;
-    std::uint64_t filesz;
+    std::uint64_t p_filesz;
     std::uint64_t p_memsz;
     std::uint64_t p_align;
 };
