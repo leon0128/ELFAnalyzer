@@ -14,9 +14,9 @@ const std::unordered_map<unsigned char, const char*> ELFHeader::TARGET_OS_ABI_MA
        {0xd,   "OpenVMS"}, {0xe, "NonStop Kernel"}, {0xf,           "AROS"}, {0x10, "Fenix OS"},
        {0x11, "CloudABI"}};
 const std::unordered_map<std::uint16_t, const char*> ELFHeader::TYPE_MAP
-    = {{0x00, "Unknown"}, {0x01, "Relocatable"}, {0x02, "Executable"}, {0x03, "Shared"}};
+    = {{0x00, "unknown"}, {0x01, "Relocatable"}, {0x02, "Executable"}, {0x03, "Shared"}};
 const std::unordered_map<std::uint16_t, const char*> ELFHeader::MACHINE_MAP
-    = {{0x00, "Unknown"}, {0x02,  "SPARC"}, {0x03,     "x86"}, {0x08,   "MIPS"},
+    = {{0x00, "unknown"}, {0x02,  "SPARC"}, {0x03,     "x86"}, {0x08,   "MIPS"},
        {0x14, "PowerPC"}, {0x16,   "S390"}, {0x28,     "ARM"}, {0x2a, "SuperH"},
        {0x32,   "IA-64"}, {0x3e, "x86-64"}, {0xb7, "AArch64"}, {0xf3, "RISC-V"}};
 
