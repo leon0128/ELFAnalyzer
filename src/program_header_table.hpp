@@ -1,6 +1,5 @@
 #pragma once
 
-#include "header.hpp"
 #include <unordered_map>
 
 class ProgramHeaderTable
@@ -15,5 +14,5 @@ public:
 
     bool load() const;
 private:
-    void print(const HEADER::Program ph) const;
+    void print() const;
 };

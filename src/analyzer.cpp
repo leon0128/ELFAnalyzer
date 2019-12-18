@@ -2,6 +2,7 @@
 #include "file_manager.hpp"
 #include "elf_header.hpp"
 #include "program_header_table.hpp"
+#include "section_header_table.hpp"
 #include "static_data.hpp"
 
 #include <fstream>
@@ -25,7 +26,8 @@ bool Analyzer::analyze(char** argv)
     elf.load();
     ProgramHeaderTable pht;
     pht.load();
-    
+    SectionHeaderTable sht;
+    sht.load();
 
     FileManager::close(DATA::STREAM());
     return true;
