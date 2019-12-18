@@ -28,6 +28,9 @@ bool SectionHeaderTable::load() const
 
     print();
 
+    for(std::size_t i = 0; i < DATA::SH_STR_TAB().size(); i++)
+        std::cout << i << ": " << DATA::SH_STR_TAB().at(i) << std::endl;
+
     return true;
 }
 
