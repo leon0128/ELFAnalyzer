@@ -13,6 +13,7 @@ public:
     ~ProgramHeaderTable();
 
     bool load() const;
-private:
     void print() const;
+
+private:
 };

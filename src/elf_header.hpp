@@ -17,9 +17,9 @@ public:
     ~ELFHeader();
 
     bool load() const;
+    void print() const;
 
 private:
-    void print() const;
     bool check() const;
     bool error(const char* message) const;
 };

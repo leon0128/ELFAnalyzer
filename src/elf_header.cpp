@@ -37,7 +37,6 @@ bool ELFHeader::load() const
     if(!check())
         return false;
 
-    print();
     return true;
 }
 
@@ -118,7 +117,7 @@ void ELFHeader::print() const
               << std::endl;
 
     std::cout << std::endl
-              << "== detail ==\n"
+              << "= detail =\n"
               << std::endl;
     std::cout << "Magic number  : "
               << "0x7f, E, L, F"

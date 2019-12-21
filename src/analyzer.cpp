@@ -29,6 +29,10 @@ bool Analyzer::analyze(char** argv)
     SectionHeaderTable sht;
     sht.load();
 
+    elf.print();
+    pht.print();
+    sht.print();
+
     FileManager::close(DATA::STREAM());
     return true;
 }

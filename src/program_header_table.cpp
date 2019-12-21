@@ -38,20 +38,18 @@ bool ProgramHeaderTable::load() const
         DATA::PHT().push_back(ph);
     }
 
-    print();
-
     return true;
 }
 
 void ProgramHeaderTable::print() const
 {
-    std::cout << "\n\n\n" << std::endl;
+    std::cout << "\n\n===== Program Header =====\n\n" << std::endl;
     
     for(std::size_t i = 0; i < DATA::PHT().size(); i++)
     {
-        HEADER::Program& ph = DATA::PHT().at(i);
+        std::cout << "== index : " << i << " ==" << std::endl;
 
-        std::cout << std::endl << "===== Program Header =====" << std::endl << std::endl;
+        HEADER::Program& ph = DATA::PHT().at(i);
 
         std::cout << "p_type   : "
                   << "0x" << std::hex << ph.p_type << std::endl;
@@ -70,7 +68,7 @@ void ProgramHeaderTable::print() const
         std::cout << "p_align  : "
                   << "0x" << std::hex << ph.p_align << std::endl;
 
-        std::cout << std::endl << "== detail == " << std::endl << std::endl;
+        std::cout << std::endl << "= detail = " << std::endl;
 
         if(ph.p_type >= 0x0 && ph.p_type <= 0x6)
             std::cout << "Type                    : " << TYPE_MAP.at(ph.p_type) << std::endl;
